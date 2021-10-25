@@ -25,7 +25,7 @@ const Header: React.FC = () => {
       <TouchableOpacity
         style={{ ...styles.button, backgroundColor: theme.colors.grayLight }}
       >
-        <Image source={{ uri: user?.profile_image }} style={styles.image} />
+        <Image source={{ uri: user?.avatar_url }} style={styles.image} />
       </TouchableOpacity>
     </View>
   );

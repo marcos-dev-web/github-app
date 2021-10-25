@@ -1,4 +1,6 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
+import { ToastAndroid } from "react-native";
+import { getUser } from "../../services/getUser";
 
 import { IAuthContext, User } from "../../types";
 
@@ -10,20 +12,19 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setUser({
-      email: "marcos@gmail.com",
-      name: "Marcos",
-      profile_image: "https://github.com/marcos-dev-web.png",
-      token: "token",
-    });
-    setSignned(true);
-    let time = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    async function fetchData() {
+      const result = await getUser("marcos-dev-web");
 
-    return () => {
-      clearTimeout(time);
-    };
+      if (result.error) {
+        ToastAndroid.show(result.error, ToastAndroid.SHORT);
+      } else {
+        setUser(result.data);
+        setLoading(false);
+        setSignned(true);
+      }
+    }
+
+    fetchData();
   }, []);
 
   return (

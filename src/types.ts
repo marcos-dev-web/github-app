@@ -22,10 +22,14 @@ export type ThemeObject = {
 };
 
 export interface User {
+  id: number;
   name: string;
   email: string;
-  token: string;
-  profile_image: string;
+  avatar_url: string;
+  bio?: string;
+  followers: number;
+  following: number;
+  location?: string;
 }
 
 export interface IAuthContext {
