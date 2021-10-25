@@ -7,6 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import { useTheme } from "./contexts/Theme";
+import { Profile } from "./screens/Profile";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,7 @@ export const Routes: React.FC = () => {
         }}
       >
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </SafeAreaView>
   );

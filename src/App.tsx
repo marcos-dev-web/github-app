@@ -10,7 +10,7 @@ import { Loader } from "./components/Loader";
 export const App: React.FC = () => {
   const { theme } = useTheme();
   const { loading } = useAuth();
-  console.log(loading);
+
   return (
     <>
       {loading && <Loader color={theme.colors.primary} />}

@@ -2,14 +2,18 @@ import React from "react";
 import { View, ScrollView, TouchableOpacity, Text } from "react-native";
 
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { useTheme } from "../../contexts/Theme";
-
 import Header from "../../components/Header";
 
 import { styles } from "./styles";
 
-export const Home: React.FC = () => {
+type Props = {
+  navigation: NativeStackNavigationProp<any, any>;
+};
+
+export const Home: React.FC<Props> = ({ navigation }) => {
   const { theme, updateTheme } = useTheme();
 
   function handleUpdateTheme() {
@@ -27,7 +31,12 @@ export const Home: React.FC = () => {
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
     >
-      <Header />
+      <Header
+        profileAction={() => {
+          navigation.navigate("Profile");
+        }}
+        title="Perfil"
+      />
       <View style={styles.center}>
         <TouchableOpacity
           style={{ ...styles.button, backgroundColor: theme.colors.primary }}

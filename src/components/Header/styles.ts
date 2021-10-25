@@ -26,5 +26,5 @@ export const styles = StyleSheet.create({
   name: {
     fontSize: 16,
     maxWidth: '50%',
-  }
+  },
 });

@@ -1,13 +1,15 @@
 export type ThemeOptions = "light" | "dark";
 
+export interface IColors {
+  primary: string;
+  secondary: string;
+  background: string;
+  text: string;
+  grayLight: string;
+}
+
 export interface ITheme {
-  colors: {
-    primary: string;
-    secondary: string;
-    background: string;
-    text: string;
-    grayLight: string;
-  };
+  colors: IColors;
   name: ThemeOptions;
   default?: boolean;
 }
